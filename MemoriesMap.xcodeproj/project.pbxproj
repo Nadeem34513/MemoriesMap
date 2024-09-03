@@ -9,16 +9,20 @@
 /* Begin PBXBuildFile section */
 		5B4F51A12C874FEC0064AF7C /* MemoriesMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F51A02C874FEC0064AF7C /* MemoriesMapApp.swift */; };
 		5B4F51A32C874FEC0064AF7C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F51A22C874FEC0064AF7C /* ContentView.swift */; };
-		5B4F51A52C874FED0064AF7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F51A42C874FED0064AF7C /* Assets.xcassets */; };
 		5B4F51A82C874FED0064AF7C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F51A72C874FED0064AF7C /* Preview Assets.xcassets */; };
+		5B4F51B02C8750BF0064AF7C /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F51AE2C8750BF0064AF7C /* LocationsDataService.swift */; };
+		5B4F51B12C8750BF0064AF7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F51AF2C8750BF0064AF7C /* Assets.xcassets */; };
+		5B4F51B82C8753880064AF7C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F51B72C8753880064AF7C /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B4F519D2C874FEC0064AF7C /* MemoriesMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoriesMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B4F51A02C874FEC0064AF7C /* MemoriesMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriesMapApp.swift; sourceTree = "<group>"; };
 		5B4F51A22C874FEC0064AF7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		5B4F51A42C874FED0064AF7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B4F51A72C874FED0064AF7C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5B4F51AE2C8750BF0064AF7C /* LocationsDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
+		5B4F51AF2C8750BF0064AF7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/b6dc374-3b0b-6bdc-3b7f-f7ce4c005a_SwiftfulMapApp-Downloads/Assets.xcassets"; sourceTree = "<group>"; };
+		5B4F51B72C8753880064AF7C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +55,13 @@
 		5B4F519F2C874FEC0064AF7C /* MemoriesMap */ = {
 			isa = PBXGroup;
 			children = (
+				5B4F51B52C87533C0064AF7C /* DataServices */,
+				5B4F51AF2C8750BF0064AF7C /* Assets.xcassets */,
 				5B4F51A02C874FEC0064AF7C /* MemoriesMapApp.swift */,
 				5B4F51A22C874FEC0064AF7C /* ContentView.swift */,
-				5B4F51A42C874FED0064AF7C /* Assets.xcassets */,
+				5B4F51B32C87532E0064AF7C /* Models */,
+				5B4F51B22C8753200064AF7C /* Views */,
+				5B4F51B42C8753350064AF7C /* ViewModels */,
 				5B4F51A62C874FED0064AF7C /* Preview Content */,
 			);
 			path = MemoriesMap;
@@ -65,6 +73,36 @@
 				5B4F51A72C874FED0064AF7C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5B4F51B22C8753200064AF7C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B4F51B32C87532E0064AF7C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B4F51B72C8753880064AF7C /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5B4F51B42C8753350064AF7C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5B4F51B52C87533C0064AF7C /* DataServices */ = {
+			isa = PBXGroup;
+			children = (
+				5B4F51AE2C8750BF0064AF7C /* LocationsDataService.swift */,
+			);
+			path = DataServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B4F51A82C874FED0064AF7C /* Preview Assets.xcassets in Resources */,
-				5B4F51A52C874FED0064AF7C /* Assets.xcassets in Resources */,
+				5B4F51B12C8750BF0064AF7C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +177,8 @@
 			files = (
 				5B4F51A32C874FEC0064AF7C /* ContentView.swift in Sources */,
 				5B4F51A12C874FEC0064AF7C /* MemoriesMapApp.swift in Sources */,
+				5B4F51B82C8753880064AF7C /* Location.swift in Sources */,
+				5B4F51B02C8750BF0064AF7C /* LocationsDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
