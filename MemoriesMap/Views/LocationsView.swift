@@ -21,6 +21,23 @@ struct LocationsView: View {
                     .padding()
                 
                 Spacer()
+                
+//                ZStack {
+//                    LocationPreviewView(location: vm.mapLocation)
+//                }
+                
+                
+                ZStack {
+                    ForEach(vm.locations) { location in
+                        if vm.mapLocation == location {
+                            LocationPreviewView(location: location)
+                                .shadow(color: .black.opacity(0.3), radius: 25)
+                                .padding()
+                                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                        }
+                    }
+                }
+                    
             }
         }
     }
