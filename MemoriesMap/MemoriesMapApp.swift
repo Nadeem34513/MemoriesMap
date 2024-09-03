@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+// extending View to include good old cornerRadius modifier
+extension View {
+    func cornerRadius(_ radius: Double) -> some View {
+        clipShape(.rect(cornerRadius: radius))
+    }
+}
+
 @main
 struct MemoriesMapApp: App {
     @StateObject private var vm = LocationsViewModel()
