@@ -14,30 +14,14 @@ struct LocationsView: View {
 
     var body: some View {
         ZStack {
-            Map(position: $vm.mapRegion)
+            mapLayer
             
             VStack(spacing: 0) {
                 header
                     .padding()
                 
                 Spacer()
-                
-//                ZStack {
-//                    LocationPreviewView(location: vm.mapLocation)
-//                }
-                
-                
-                ZStack {
-                    ForEach(vm.locations) { location in
-                        if vm.mapLocation == location {
-                            LocationPreviewView(location: location)
-                                .shadow(color: .black.opacity(0.3), radius: 25)
-                                .padding()
-                                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-                        }
-                    }
-                }
-                    
+                locationPreviewStack
             }
         }
     }
@@ -81,5 +65,33 @@ extension LocationsView {
         .background(.thickMaterial)
         .cornerRadius(10)
         .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y: 15)
+    }
+    
+    private var mapLayer: some View {
+        Map(position: $vm.mapRegion) {
+            ForEach(vm.locations) { location in
+                Annotation(location.name, coordinate: location.coordinates) {
+                    LocationMapAnnotationView()
+                        .shadow(radius: 30)
+                        .scaleEffect(vm.mapLocation == location ? 1 : 0.7)
+                        .onTapGesture {
+                            vm.showSelectedLocation(location: location)
+                        }
+                }
+            }
+        }
+    }
+    
+    private var locationPreviewStack: some View {
+        ZStack {
+            ForEach(vm.locations) { location in
+                if vm.mapLocation == location {
+                    LocationPreviewView(location: location)
+                        .shadow(color: .black.opacity(0.3), radius: 25)
+                        .padding()
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                }
+            }
+        }
     }
 }
