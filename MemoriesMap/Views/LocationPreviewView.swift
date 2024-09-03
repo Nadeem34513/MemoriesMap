@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LocationPreviewView: View {
     @EnvironmentObject private var vm: LocationsViewModel
+    @State private var isPresenting: Bool = false
     var location: Location
     var body: some View {
         HStack(alignment: .bottom) {
@@ -62,7 +63,9 @@ extension LocationPreviewView {
     }
     
     private var LearnMoreButton: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            vm.sheetLocation = location
+        }, label: {
             Text("Learn More")
                 .frame(width: 125, height: 35)
         })
@@ -85,5 +88,6 @@ extension LocationPreviewView {
         Color.green.ignoresSafeArea()
         
         LocationPreviewView(location: LocationsDataService.locations.first!)
+            .environmentObject(LocationsViewModel())
     }
 }
