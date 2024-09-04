@@ -39,12 +39,24 @@ struct LocationPreviewView: View {
 extension LocationPreviewView {
     private var imageSection: some View {
         ZStack {
-            if let imageName = location.imageNames.first {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 125, height: 125)
-                    .cornerRadius(10)
+            if let imageNames = location.imageNames {
+                if let imageName = imageNames.first {
+                    Image(imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 125, height: 125)
+                        .cornerRadius(10)
+                } else {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.white)
+                        .overlay {
+                            Text("No Preview Image")
+                                .font(.caption)
+                                .italic()
+                        }
+                        .frame(width: 125, height: 125)
+                        .cornerRadius(10)
+                }
             }
         }
         .padding(6)

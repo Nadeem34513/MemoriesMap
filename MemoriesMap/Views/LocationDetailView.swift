@@ -46,14 +46,15 @@ struct LocationDetailView: View {
 extension LocationDetailView {
     private var imageCarousel: some View {
         TabView {
-            ForEach(location.imageNames, id: \.self) {
-                Image($0)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(maxWidth: UIScreen.main.bounds.width)
-                    .clipped()
+            if let imageNames = location.imageNames {
+                ForEach(imageNames, id: \.self) {
+                    Image($0)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? nil : UIScreen.main.bounds.width)
+                        .clipped()
+                }
             }
-        
         }
         .frame(height: 500)
         .tabViewStyle(PageTabViewStyle())
@@ -86,24 +87,11 @@ extension LocationDetailView {
     
     private var mapLayer: some View {
         Map(position: .constant(
-            MapCameraPosition.region(MKCoordinateRegion(center: location.coordinates, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))))) {
+            MapCameraPosition.region(MKCoordinateRegion(center: location.coordinates, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))))) {
                 Annotation(location.name, coordinate: location.coordinates) {
                     LocationMapAnnotationView()
                         .shadow(radius: 30)
                 }
             }
-        
-//        Map(position: $vm.mapRegion) {
-//            ForEach(vm.locations) { location in
-//                Annotation(location.name, coordinate: location.coordinates) {
-//                    LocationMapAnnotationView()
-//                        .shadow(radius: 30)
-//                        .scaleEffect(vm.mapLocation == location ? 1 : 0.7)
-//                        .onTapGesture {
-//                            vm.showSelectedLocation(location: location)
-//                        }
-//                }
-//            }
-//        }
     }
 }

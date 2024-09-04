@@ -34,12 +34,16 @@ extension LocationsListView {
     private func ListRowView(location: Location) -> some View {
         HStack(spacing: 10) {
             // image
-            if let imageName = location.imageNames.first {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 45, height: 45)
-                    .cornerRadius(10)
+            if let imageNames = location.imageNames {
+                if let imageName = imageNames.first {
+                    Image(imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 45, height: 45)
+                        .cornerRadius(10)
+                }
+            } else {
+                ProgressView()
             }
             
             // name and city
