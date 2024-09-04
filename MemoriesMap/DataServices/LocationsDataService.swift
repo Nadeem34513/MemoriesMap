@@ -55,6 +55,13 @@ class LocationsDataService {
                 "paris-louvre-3",
             ],
             link: "https://en.wikipedia.org/wiki/Louvre"),
+        Location(
+            name: "JLN Stadium",
+            cityName: "Kochi",
+            coordinates: CLLocationCoordinate2D(latitude: 9.997578620910645, longitude: 76.30087280273438),
+            description: "The Jawaharlal Nehru International Stadium, also known as Kaloor Stadium, is a multi-purpose stadium in Kochi, Kerala, India. Since the 2017 renovation, the stadium has a seating capacity of 40,000. Previously, it was able to host 80,000 spectators, which was reduced for Indian Super League (ISL) matches due to security reasons. It is the home ground of the ISL club Kerala Blasters FC.",
+            imageNames: [],
+            link: "https://en.wikipedia.org/wiki/Jawaharlal_Nehru_Stadium_(Kochi)"),
     ]
     
 }
